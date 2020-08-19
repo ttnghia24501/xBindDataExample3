@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace xBindDataExample3.Models
 {
-    class Book
+    public class Book
     {
         public int BookId { get; set; }
         public string Title { get; set; }
@@ -15,8 +15,8 @@ namespace xBindDataExample3.Models
 
     }
     public class BookManager
-    { 
-    public static List<Book> GetBooks()
+    {
+        public static List<Book> GetBooks()
         {
             var books = new List<Book>();
 

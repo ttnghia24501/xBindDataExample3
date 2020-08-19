@@ -12,8 +12,10 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using xBindDataExample3.Models;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+
 
 namespace xBindDataExample3
 {
@@ -22,9 +24,18 @@ namespace xBindDataExample3
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private List<Book> Books;
         public MainPage()
         {
             this.InitializeComponent();
+            Books = BookManager.GetBooks();
+        }
+
+        private void GridView_ItemClick(object sender,ItemClickEventArgs e)
+        {
+            var book = (Book)e.ClickedItem;
+            ResultTextBlock.Text = "You selected" + book.Title;
         }
     }
 }
+
